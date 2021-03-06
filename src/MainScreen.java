@@ -25,7 +25,7 @@ public class MainScreen {
 		if (subir == false) {
 			y -= 0.5;}
 		if (y == 100) {subir = true;}
-		if (y == 140) {subir= false;}
+		if (y == 160) {subir= false;}
 			
 		
 		app.image(l,500,y);
