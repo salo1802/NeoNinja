@@ -6,7 +6,7 @@ public class Time {
 	public Time () {}
 	
 	
-	int secondsPassed = 0;
+	private int secondsPassed = 0;
 
 	Timer timer = new Timer ();
 	TimerTask task = new TimerTask() {

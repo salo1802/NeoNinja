@@ -14,6 +14,8 @@ public class Main extends PApplet{
 		
 	}
 	
+	int x = 500;
+	
 
 	public void settings() {
 		size(1000,700);
@@ -31,18 +33,20 @@ public class Main extends PApplet{
 	public void setup() {
 		imageMode(CENTER);
 		p1 = new MainScreen(this);
+		frameRate(12);
 		
 		
-	
+		
+		
 		  
 	}
 	
 
 public void draw() {
 	
-	
 	p1.PaintScreen(this);
 	
+		
 	
 	  
      
@@ -50,4 +54,10 @@ public void draw() {
 
      
     
-	}}
+	}
+
+
+
+
+
+}
