@@ -25,14 +25,16 @@ public class Main extends PApplet{
 		 
 	}
 	
-	MainScreen p1;
-	
+	MainScreen s1;
+	boolean prueba;
+	int prueba1;
 	
 	
 	
 	public void setup() {
 		imageMode(CENTER);
-		p1 = new MainScreen(this);
+		s1 = new MainScreen(this);
+		s1.loadScreenImage(this,"pantallaP.png");
 		frameRate(12);
 		
 		
@@ -44,7 +46,7 @@ public class Main extends PApplet{
 
 public void draw() {
 	
-	p1.PaintScreen(this);
+	s1.PaintMainScreen(this);
 	
 		
 	
@@ -56,7 +58,11 @@ public void draw() {
     
 	}
 
-
+@Override
+public void mousePressed() {
+	prueba = s1.button(500,350, 300, 300,mouseX,mouseY);
+	System.out.println(prueba);
+}
 
 
 

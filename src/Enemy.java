@@ -5,12 +5,9 @@ public class Enemy {
 	
 	private int eX;
 	private int eY;
+	private int eWidth;
+	private int eHeight;
 	private boolean dR;
-	public Enemy(int startPocitionX,int startPocitionY ){
-		eX = startPocitionX;
-		eY = startPocitionY;
-		dR = true;
-	}
 	PImage zi1;
 	PImage zi2;
 	PImage zi3;
@@ -18,7 +15,12 @@ public class Enemy {
 	PImage zd2;
 	PImage zd3;
 	
-	public void loadEnemyImages(PApplet app) {
+	public Enemy(int startPocitionX,int startPocitionY, PApplet app ){
+		eX = startPocitionX;
+		eY = startPocitionY;
+		dR = true;
+		eWidth = 132;
+		eHeight = 144;
 		
 		zi1 = app.loadImage("zi1.png");
 		zi2 = app.loadImage("zi2.png");
@@ -27,6 +29,9 @@ public class Enemy {
 		zd2 = app.loadImage("zd2.png");
 		zd3 = app.loadImage("zd3.png");
 	}
+	
+	
+	
 	
 	public void paintEnemy(PApplet app){
 		if (dR==false) {
@@ -60,6 +65,34 @@ public class Enemy {
 		if(app.frameCount==12) {
 			app.frameCount = 0;
 		}
+	}
+	
+	public int geteX() {
+		return eX;
+	}
+	
+	public int geteY() {
+		return eY;
+	}
+	
+	public int geteHeight() {
+		return eHeight;
+	}
+	
+	public int geteWidth() {
+		return eWidth;
+	}
+	
+	public void setdR(boolean dR) {
+		this.dR = dR;
+	}
+	
+	public void seteX(int eX) {
+		this.eX = eX;
+	}
+	
+	public void seteY(int eY) {
+		this.eY = eY;
 	}
 
 }

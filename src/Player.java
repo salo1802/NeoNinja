@@ -5,13 +5,8 @@ public class Player {
 
 	private int pX;
 	private int pY;
+	private int pSize;
 	private boolean dR;
-	public Player(int startPocitionX,int startPocitionY ){
-		pX = startPocitionX;
-		pY = startPocitionY;
-		dR = true;
-	}
-	
 	PImage ndn;
 	PImage nd1;
 	PImage nd2;
@@ -27,7 +22,11 @@ public class Player {
 	PImage ni5;
 	PImage ni6;
 	
-	public void loadPlayerImages(PApplet app) {
+	public Player(int startPocitionX,int startPocitionY, PApplet app ){
+		pX = startPocitionX;
+		pY = startPocitionY;
+		pSize = 100;
+		dR = true;
 		ndn = app.loadImage("ndn.png");
 		nd1 = app.loadImage("nd1.png");
 		nd2 = app.loadImage("nd2.png");
@@ -43,6 +42,8 @@ public class Player {
 		ni5 = app.loadImage("ni5.png");
 		ni6 = app.loadImage("ni6.png");
 	}
+	
+	
 	
 	public void paintPlayer(PApplet app) {
 		if(dR==true) {
@@ -96,5 +97,14 @@ public class Player {
 		
 	}
 	
+	public int getpSize() {
+		return pSize;
+	}
 	
+	public int getpX() {
+		return pX;
+	}
+	public int getpY() {
+		return pY;
+	}
 }
