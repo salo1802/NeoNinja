@@ -19,7 +19,7 @@ public class Screen {
 	public void PaintScreen(PApplet app) {
 		app.image(image, 500, 350);}
 	
-	public boolean  button(int x, int y,int width,int height,int mouseX,int mouseY) {
+	public boolean button(int x, int y,int width,int height,int mouseX,int mouseY) {
 		boolean action = false;
 			if(mouseX  > x-width/2 && mouseX  < x+width/2 && mouseY > y-height/2 && mouseY < y+height/2) {
 				action = true; 

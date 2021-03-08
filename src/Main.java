@@ -1,6 +1,9 @@
 	
 
+
 import processing.core.PApplet;
+
+
 
 
 public class Main extends PApplet{
@@ -11,10 +14,18 @@ public class Main extends PApplet{
 		music.playMusic(filepath);
 		
 		PApplet.main("Main");
-		
 	}
 	
 	int x = 500;
+	MainScreen s0;
+	H2PScreen s1;
+	PlayScreen s2;
+	SumScreen s3;
+	int screen;
+
+	
+	
+	
 	
 
 	public void settings() {
@@ -25,43 +36,63 @@ public class Main extends PApplet{
 		 
 	}
 	
-	MainScreen s1;
-	boolean prueba;
-	int prueba1;
-	
 	
 	
 	public void setup() {
+		screen = 3;
 		imageMode(CENTER);
-		s1 = new MainScreen(this);
-		s1.loadScreenImage(this,"pantallaP.png");
+		fill(157,241,255);
+		textAlign(CENTER, CENTER);
+		s0 = new MainScreen(this);
+		s0.loadScreenImage(this,"pantallaP.png");
+		s1 = new H2PScreen();
+		s1.loadScreenImage(this,"how2play.jpg");
+		s2 = new PlayScreen();
+		s2.loadScreenImage(this,"escenario.jpg");
+		s3 = new SumScreen(this);
+		s3.loadScreenImage(this,"RS.jpg");
+		
 		frameRate(12);
 		
-		
-		
+		  
+		  
 		
 		  
 	}
 	
 
 public void draw() {
-	
-	s1.PaintMainScreen(this);
-	
-		
-	
-	  
-     
-     
 
-     
+	switch(screen) {
+	case 0:
+	s0.PaintMainScreen(this);
+	break;
+	case 1:
+	s1.PaintScreen(this);
+	break;
+	case 2:
+	s2.PaintScreen(this);
+	break;
+	case 3:
+	s3.PaintSumScreen(this,100,2);
+	break;	}
+	
     
 	}
 
 @Override
 public void mousePressed() {
-	prueba = s1.button(500,350, 300, 300,mouseX,mouseY);
-	System.out.println(prueba);
+	switch (screen){
+	case 0:
+	screen = s0.mainScreenButtons(mouseX,mouseY);
+	break;
+	case 1:
+	screen = s1.H2PScreenButton(mouseX,mouseY);
+	break;
+	case 3: 
+	screen = s3.SumScreenButton(mouseX,mouseY);
+		break;}
+	System.out.println(screen);
 }
 
 
