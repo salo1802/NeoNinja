@@ -67,7 +67,7 @@ public class PlayScreen extends Screen {
 			
 
 			//dificultad
-			if(app.frameCount==12) {
+			if(app.frameCount%12==0) {
 				
 				difficulty+= 0.3;
 				timePassed++;
@@ -82,7 +82,7 @@ public class PlayScreen extends Screen {
 			
 			//creacion de zombies
 			
-		if(app.frameCount == 12) {	
+		if(app.frameCount%12==0) {	
 			if(rSide==true) {
 				Enemy newEnemy = new Enemy(1100,(int)(Math.random()*(800-0)),app);
 				enemies.add(newEnemy);}
@@ -96,31 +96,36 @@ public class PlayScreen extends Screen {
 			
 			
 			//ninja movement
-			
+			  
 			
 			switch (ninjaD){
 			case 0:
 				ninja.setMove(false);
 				break;
 			case 1:
+				if(ninja.getpX()<1000) {
 				ninja.setdR(true);
 				ninja.setMove(true);
-				ninja.setpX(ninja.getpX()+10);
+				ninja.setpX(ninja.getpX()+10);}
 				break;
 			case 2:
+				if(ninja.getpSize()>0) {
 				ninja.setdR(false);
 				ninja.setMove(true);
-				ninja.setpX(ninja.getpX()-10);;
+				ninja.setpX(ninja.getpX()-10);;}
 			case 3:
+				if(ninja.getpY()>0) {
 				ninja.setMove(true);
-				ninja.setpY(ninja.getpY()-10);
+				ninja.setpY(ninja.getpY()-10);}
 				break;
 			case 4:
+				if(ninja.getpY()<700) {
 				ninja.setMove(true);
-				ninja.setpY(ninja.getpY()+10);
-				break;}
+				ninja.setpY(ninja.getpY()+10);}
+				break;
 				
 				}
+			}
 		
 		public void eraseEnemy(int mouseX,int mouseY) {
 			if(coolDown==0) {

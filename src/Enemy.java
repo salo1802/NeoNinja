@@ -7,6 +7,7 @@ public class Enemy {
 	private int eY;
 	private int eWidth;
 	private int eHeight;
+	private int timeAnimation;
 	private boolean dR;
 	private float speed;
 	PImage zi1;
@@ -35,36 +36,37 @@ public class Enemy {
 	
 	
 	public void paintEnemy(PApplet app){
+		if(app.frameCount%1==0) {
+			timeAnimation++;
+		}
 		if (dR==false) {
-		if (app.frameCount>=0 && app.
-				frameCount < 5) {
+		if (timeAnimation>=0 && timeAnimation < 5) {
 			app.image(zi1,eX,eY);
 		}
 		
-		if (app.frameCount>=5 && app.frameCount < 9) {
+		if (timeAnimation>=5 && timeAnimation < 9) {
 			app.image(zi2,eX,eY);
 		}
 		
-		if (app.frameCount>= 9) {
+		if (timeAnimation>= 9) {
 			app.image(zi1,eX,eY);
 		}}
 		
 		if (dR==true) {
-			if (app.frameCount>=0 && app.
-					frameCount < 5) {
+			if (timeAnimation>=0 && timeAnimation < 5) {
 				app.image(zd1,eX,eY);
 			}
 			
-			if (app.frameCount>=5 && app.frameCount < 9) {
+			if (timeAnimation>=5 && timeAnimation < 9) {
 				app.image(zd2,eX,eY);
 			}
 			
-			if (app.frameCount>= 9) {
+			if (timeAnimation>= 9) {
 				app.image(zd1,eX,eY);
 			}}
 		
-		if(app.frameCount==12) {
-			app.frameCount = 0;
+		if(timeAnimation==12) {
+			timeAnimation = 0;
 		}
 	}
 	

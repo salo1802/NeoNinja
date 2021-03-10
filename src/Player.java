@@ -8,6 +8,7 @@ public class Player {
 	private int pSize;
 	private boolean dR;
 	private boolean move;
+	private int timeAnimation=0;
 	PImage ndn;
 	PImage nd1;
 	PImage nd2;
@@ -49,54 +50,58 @@ public class Player {
 	
 	public void paintPlayer(PApplet app) {
 		
+		if (app.frameCount%2==0) {
+			timeAnimation++;
+			
+		}
 		if(move == true) {
 		if(dR==true) {
-			if(app.frameCount==1) {
+			if(timeAnimation==1) {
 				app.image(nd1, pX, pY);}
-			if(app.frameCount==2) {
+			if(timeAnimation==2) {
 				app.image(nd2, pX, pY);}
-			if(app.frameCount==3) {
+			if(timeAnimation==3) {
 				app.image(nd3, pX, pY);}
-			if(app.frameCount==4) {
+			if(timeAnimation==4) {
 				app.image(nd4, pX, pY);}
-			if(app.frameCount==5) {
+			if(timeAnimation==5) {
 				app.image(nd5, pX, pY);}
-			if(app.frameCount>=6 && app.frameCount<8) {
+			if(timeAnimation>=6 && timeAnimation<8) {
 				app.image(nd6, pX, pY);}
-			if(app.frameCount==8) {
+			if(timeAnimation==8) {
 				app.image(nd5, pX, pY);}
-			if(app.frameCount==9) {
+			if(timeAnimation==9) {
 				app.image(nd4, pX, pY);}
-			if(app.frameCount==10) {
+			if(timeAnimation==10) {
 				app.image(nd3, pX, pY);}
-			if(app.frameCount>10) {
+			if(timeAnimation>10) {
 				app.image(nd2, pX, pY);}
-			if(app.frameCount==12) {
-				app.frameCount=1;}}
+			if(timeAnimation==12) {
+				timeAnimation=1;}}
 			
 			if(dR==false) {
-				if(app.frameCount==1) {
+				if(timeAnimation==1) {
 					app.image(ni1, pX, pY);}
-				if(app.frameCount==2) {
+				if(timeAnimation==2) {
 					app.image(ni2, pX, pY);}
-				if(app.frameCount==3) {
+				if(timeAnimation==3) {
 					app.image(ni3, pX, pY);}
-				if(app.frameCount==4) {
+				if(timeAnimation==4) {
 					app.image(ni4, pX, pY);}
-				if(app.frameCount==5) {
+				if(timeAnimation==5) {
 					app.image(ni5, pX, pY);}
-				if(app.frameCount>=6 && app.frameCount<8) {
+				if(timeAnimation>=6 && timeAnimation<8) {
 					app.image(ni6, pX, pY);}
-				if(app.frameCount==8) {
+				if(timeAnimation==8) {
 					app.image(ni5, pX, pY);}
-				if(app.frameCount==9) {
+				if(timeAnimation==9) {
 					app.image(ni4, pX, pY);}
-				if(app.frameCount==10) {
+				if(timeAnimation==10) {
 					app.image(ni3, pX, pY);}
-				if(app.frameCount>10) {
+				if(timeAnimation>10) {
 					app.image(ni2, pX, pY);}
-				if(app.frameCount==12) {
-					app.frameCount=1;}}}
+				if(timeAnimation==12) {
+					timeAnimation=1;}}}
 		
 		if(move == false) {
 			if(dR==true) {
