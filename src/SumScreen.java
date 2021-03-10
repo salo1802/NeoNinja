@@ -25,6 +25,6 @@ public class SumScreen extends Screen {
 		
 		if (playPressed==true) {return 2;}
 		
-		else  return 1;
+		else  return 3;
 	}
 }

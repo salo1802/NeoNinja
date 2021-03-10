@@ -14,6 +14,6 @@ public class H2PScreen extends Screen {
 		
 		if (playPressed==true) {return 2;}
 		
-		else  return 3;
+		else  return 1;
 	}
 }

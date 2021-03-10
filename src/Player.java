@@ -7,6 +7,7 @@ public class Player {
 	private int pY;
 	private int pSize;
 	private boolean dR;
+	private boolean move;
 	PImage ndn;
 	PImage nd1;
 	PImage nd2;
@@ -26,6 +27,7 @@ public class Player {
 		pX = startPocitionX;
 		pY = startPocitionY;
 		pSize = 100;
+		move = false;
 		dR = true;
 		ndn = app.loadImage("ndn.png");
 		nd1 = app.loadImage("nd1.png");
@@ -46,6 +48,8 @@ public class Player {
 	
 	
 	public void paintPlayer(PApplet app) {
+		
+		if(move == true) {
 		if(dR==true) {
 			if(app.frameCount==1) {
 				app.image(nd1, pX, pY);}
@@ -92,7 +96,16 @@ public class Player {
 				if(app.frameCount>10) {
 					app.image(ni2, pX, pY);}
 				if(app.frameCount==12) {
-					app.frameCount=1;}}
+					app.frameCount=1;}}}
+		
+		if(move == false) {
+			if(dR==true) {
+				app.image(ndn, pX, pY);}
+			
+			if(dR==false) {
+				app.image(nin, pX, pY);}
+			
+		}
 			
 		
 	}
@@ -106,5 +119,21 @@ public class Player {
 	}
 	public int getpY() {
 		return pY;
+	}
+	
+	public void setdR(boolean dR) {
+		this.dR = dR;
+	}
+	
+	public void setpX(int pX) {
+		this.pX = pX;
+	}
+	
+	public void setpY(int pY) {
+		this.pY = pY;
+	}
+	
+	public void setMove(boolean move) {
+		this.move = move;
 	}
 }

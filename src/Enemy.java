@@ -8,6 +8,7 @@ public class Enemy {
 	private int eWidth;
 	private int eHeight;
 	private boolean dR;
+	private float speed;
 	PImage zi1;
 	PImage zi2;
 	PImage zi3;
@@ -67,6 +68,28 @@ public class Enemy {
 		}
 	}
 	
+	
+	public void movement(int playerX,int playerY){
+		if(playerX > eX) { 
+			eX += speed;
+			dR = true;
+		}
+		
+		if(playerX < eX) { 
+			eX -= speed;
+			dR = false;
+		}
+		
+		if(playerY > eY) { 
+			eY += speed;}
+		
+		if(playerY < eY) { 
+			eY -= speed;}
+		
+	}
+	
+	
+	
 	public int geteX() {
 		return eX;
 	}
@@ -94,5 +117,8 @@ public class Enemy {
 	public void seteY(int eY) {
 		this.eY = eY;
 	}
-
+	
+	public void setSpeed(float speed) {
+		this.speed = speed;
+	}
 }
